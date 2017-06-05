@@ -3,7 +3,7 @@ require 'yunpian/request'
 
 module Yunpian
   SEND_GATEWAY    = 'http://yunpian.com/v1/sms/send.json'
-  SEND_TPL_GATEWAY= 'https://sms.yunpian.com/v1/sms/tpl_send.json'
+  SEND_TPL_GATEWAY= 'http://sms.yunpian.com/v1/sms/tpl_send.json'
   ACCOUNT_GATEWAY = 'http://yunpian.com/v1/user/get.json'
 
   @timeout = 5
