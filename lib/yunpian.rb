@@ -22,7 +22,7 @@ module Yunpian
     # @param tpl_params [Hash] 模板参数值
     def send_with_template!(recipients, tpl_id, tpl_params)
       tpl_value = tpl_params.map do |key, value|
-        "#{key}=#{value}"
+        "#{URI.encode("##{key}#")}=#{URI.encode(value)}"
       end.join("&")
 
       params = {
