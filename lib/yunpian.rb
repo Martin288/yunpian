@@ -26,7 +26,7 @@ module Yunpian
       end.join("&")
 
       params = {
-        api_key: Yunpian.apikey,
+        apikey: Yunpian.apikey,
         mobile: Array(recipients).join(','),
         tpl_id: tpl_id,
         tpl_value: tpl_value
