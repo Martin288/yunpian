@@ -20,9 +20,9 @@ module Yunpian
     # @param recipients [Array, String] 收件人手机号码（或列表）
     # @param tpl_id [Integer] 模板 id
     # @param tpl_params [Hash] 模板参数值
-    def send_with_template!(recipients, tpl_id, tpl_params)
+    def send_with_template!(recipients, tpl_id, tpl_params = {})
       tpl_value = tpl_params.map do |key, value|
-        "#{URI.encode("##{key}#")}=#{URI.encode(value)}"
+        "#{URI.encode("##{key.to_s}#")}=#{URI.encode(value.to_s)}"
       end.join("&")
 
       params = {
@@ -36,7 +36,8 @@ module Yunpian
 
     def send_with_template(recipients, tpl_id, tpl_params)
       send_with_template!(recipients, tpl_id, tpl_params)
-    rescue RequestException
+    rescue RequestException => e
+      puts "warning: #{e.message}"
     end
 
     def send_to(recipients, content, signature = nil)
